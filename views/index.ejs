@@ -1,9 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('./partials/head.ejs')%>
-<body>
-    <%- include('./partials/nav.ejs')%>
-    <h2>home</h2>
-    <%- include('./partials/footer.ejs')%>
-</body>
+
+    <body>
+
+        <%- include('./partials/nav.ejs')%>
+            <main>
+                <% if(blogs.length>0) {%>
+                    <% blogs.forEach(blog=> {%>
+                        <article class="blog-card">
+                            <h2><%= blog.title %></h2>
+                            <p>  <%= blog.snippet %> </p>
+                        </article>t
+                    <%})%>
+              <%}%>
+            </main>
+            <%- include('./partials/footer.ejs')%>
+    </body>
+
 </html>
