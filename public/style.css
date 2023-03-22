@@ -16,3 +16,26 @@ body{
     width: 100%;
     min-height: 100vh;
 }
+header{
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em 2em;
+}
+.navbar-nav{
+    display: flex;
+    align-items: center;
+    gap: 2em;
+}
+main{
+    padding: 1em 2em;
+}
+.blog-card{
+    margin: 1em 0;
+}
+footer{
+    text-align: center;
+}
