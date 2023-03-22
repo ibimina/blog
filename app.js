@@ -1,6 +1,11 @@
 const express = require('express');
+const mongoose = require('mongoose');
+const dotenv = require("dotenv");
+dotenv.config();
 
+const url = process.env.MONGO_URL;
 const app =express()
+
 app.use(express.static("public"));
 
 app.set('view engine', 'ejs');
