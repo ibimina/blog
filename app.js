@@ -6,11 +6,14 @@ dotenv.config();
 const url = process.env.MONGO_URL;
 const app =express()
 
-app.use(express.static("public"));
-
+//connect to mongodb and listen for requests
+mongoose.connect(url)
+.then(() => app.listen(3000))
+.catch((err) => console.log(err));
 app.set('view engine', 'ejs');
 
-app.listen(process.env.PORT || 3000);
+//middleware and static files
+app.use(express.static("public"));
 
 //basic routing
 app.get('/',(req,res)=>{
