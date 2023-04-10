@@ -1,6 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require("dotenv");
+const blogRoute = require("./route/blogRoute")
+
 dotenv.config();
 
 const url = process.env.MONGO_URL;
@@ -14,30 +16,23 @@ app.set('view engine', 'ejs');
 
 //middleware and static files
 app.use(express.static("public"));
-
+app.use(express.urlencoded({extended:true}))
 //basic routing
-app.get('/',(req,res)=>{
-    const blogs =[{
-        title: 'Ibimina starts a blog',
-        snippet: 'Lorem ipsum dolor sit amet consectetur'
-    },
-    {
-        title: 'Node js is the best',
-        snippet: 'Lorem ipsum dolor sit amet consectetur'
-    },
-    {
-        title: 'How to defeat bowser',
-        snippet: 'Lorem ipsum dolor sit amet consectetur'
-    }
+app.use(blogRoute)
 
-]
-    res.render('index',{title: 'Home', blogs});
+app.get('/',(req,res)=>{
+    res.render('index',{title: 'Home'});
 })
 
+
 app.get("/about", (req, res) => {
-  res.render("about");
+  res.render("about", { title: "About" });
+});
+
+app.get("/create", (req, res) => {
+  res.render("addblog", { title: "Add new Blog" });
 });
 
 app.use( (req, res) => {
-  res.render("404");
+  res.render("404", { title: "404" });
 });
