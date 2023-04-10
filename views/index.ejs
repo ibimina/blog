@@ -6,14 +6,10 @@
 
         <%- include('./partials/nav.ejs')%>
             <main>
-                <% if(blogs.length>0) {%>
-                    <% blogs.forEach(blog=> {%>
-                        <article class="blog-card">
-                            <h2><%= blog.title %></h2>
-                            <p>  <%= blog.snippet %> </p>
-                        </article>
-                    <%})%>
-              <%}%>
+               <h1>My blogs</h1>
+               <p>
+                Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
+               </p>
             </main>
             <%- include('./partials/footer.ejs')%>
     </body>
